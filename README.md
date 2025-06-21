@@ -28,7 +28,7 @@ The goal of this project is to build an end-to-end analytics pipeline using the 
 
 ## 📂 Project Structure
 
-<pre> \```plaintext airbnb-analytics-dbt/ ├── models/ │ ├── staging/ │ └── marts/ ├── snapshots/ ├── dbt_project.yml └── README.md \``` </pre>
+<pre> ```plaintext airbnb-analytics-dbt/ ├── models/ │ ├── staging/ │ └── marts/ ├── snapshots/ ├── dbt_project.yml └── README.md ``` </pre>
 
 ---
 
