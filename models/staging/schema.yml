@@ -6,6 +6,7 @@ sources:
     schema: raw
     tables:
       - name: listings
+      - name: calendar
 
 models:
   - name: stg_listings
@@ -118,3 +119,31 @@ models:
 
       - name: review_scores_rating
         description: Average rating score based on guest reviews
+
+  - name: stg_calendar
+    description: Cleaned and typed staging model for calendar-based availability and pricing
+    columns:
+      - name: listing_id
+        description: Airbnb listing ID
+        tests:
+          - not_null
+
+      - name: calendar_date
+        description: Date of availability and pricing
+        tests:
+          - not_null
+
+      - name: is_available
+        description: Whether the listing is available on that day
+
+      - name: price
+        description: Price listed for that date (before adjustments)
+
+      - name: adjusted_price
+        description: Final adjusted price for that date
+
+      - name: minimum_nights
+        description: Minimum nights required for that date
+
+      - name: maximum_nights
+        description: Maximum nights allowed for that date
