@@ -7,6 +7,7 @@ sources:
     tables:
       - name: listings
       - name: calendar
+      - name: reviews
 
 models:
   - name: stg_listings
@@ -147,3 +148,30 @@ models:
 
       - name: maximum_nights
         description: Maximum nights allowed for that date
+  - name: stg_reviews
+    description: Cleaned and typed staging model for listing reviews
+    columns:
+      - name: review_id
+        description: Unique ID for the review
+        tests:
+          - not_null
+          - unique
+
+      - name: listing_id
+        description: Airbnb listing ID the review belongs to
+        tests:
+          - not_null
+
+      - name: review_date
+        description: Date the review was posted
+        tests:
+          - not_null
+
+      - name: reviewer_id
+        description: Unique ID of the reviewer
+
+      - name: reviewer_name
+        description: Name of the reviewer
+
+      - name: comments
+        description: Free text comments from the reviewer
