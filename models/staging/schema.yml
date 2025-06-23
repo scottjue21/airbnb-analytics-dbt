@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: raw
+    database: AIRBNB_PROJECT
+    schema: raw
+    tables:
+      - name: listings
+
+models:
+  - name: stg_listings
+    description: "Cleaned and renamed staging model for Airbnb listings"
+    columns:
+      - name: listing_id
+        tests:
+          - not_null
+          - unique
+      - name: price
+        description: "Nightly price of the listing in USD"
+      - name: host_id
+        description: >
+          Host ID of the Airbnb listing, expected to be an integer. 
+          Some records in the raw data contain invalid values and will be cast to NULL.
+        tests:
+          - not_null:
+              config:
+                severity: warn
+                description: >
+                  Ensures every listing has a host ID. Nulls may indicate upstream data issues.
+          - dbt_utils.expression_is_true:
+              expression: "try_cast(host_id as int) is not null"
+              config:
+                severity: warn
+                description: >
+                  Validates that host_id can be safely cast to INT. Known issue with non-numeric values in raw dataset.
+      - name: reviews_per_month
+        description: >
+          Monthly average review count per listing. Cast to float. Some raw values may be invalid.
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "try_cast(reviews_per_month as float) is not null"
+              config:
+                severity: warn
+                description: >
+                  Validates that all values can be cast to float. Flags invalid entries like 'f', 'n/a', etc.
