@@ -8,7 +8,7 @@ renamed as (
 
     select
         id::int as listing_id,
-        name,
+        name as listing_name,
         try_cast(host_id as int) as host_id,
         host_name,
         neighbourhood_cleansed as neighborhood,

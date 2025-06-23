@@ -39,5 +39,7 @@ models:
   airbnb_project:
     staging:
       +schema: staging
+      +materialized: view
     marts:
       +schema: marts
+      +materialized: table
