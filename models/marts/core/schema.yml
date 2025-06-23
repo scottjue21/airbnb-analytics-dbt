@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_listings
+    description: Dimension table with enriched listing and host attributes
+
+  - name: fct_calendar
+    description: Fact table with daily price and availability info for listings
+
+  - name: dim_reviews
+    description: Raw reviews dimension table with reviewer and comment info
