@@ -2,10 +2,18 @@ with calendar as (
     select * from {{ ref('stg_calendar') }}
 ),
 
-valid_calendar as (
-    select *
+cleaned as (
+    select *,
+        coalesce(adjusted_price, price) as actual_price
     from calendar
-    where price is not null
+    where coalesce(adjusted_price, price) is not null
 )
 
-select * from valid_calendar
+select
+    listing_id,
+    calendar_date,
+    is_available,
+    minimum_nights,
+    maximum_nights,
+    actual_price
+from cleaned

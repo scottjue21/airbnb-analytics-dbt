@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: listing_monthly_revenue
+    description: >
+      Monthly total revenue per listing, based on actual price and availability.
+    columns:
+      - name: listing_id
+        tests: [not_null]
+      - name: revenue_month
+        description: "First day of the month being aggregated"
+        tests: [not_null]
+      - name: monthly_revenue
+        description: "Total revenue in that month for the listing"
+
+  - name: listing_occupancy_rate
+    description: >
+      Calculates the occupancy rate per listing based on calendar availability.
+    columns:
+      - name: listing_id
+        tests: [not_null]
+      - name: occupancy_rate
+        description: "Ratio of days unavailable to total days in calendar"
+
+  - name: avg_price_by_neighborhood
+    description: >
+      Average nightly price by neighborhood, based on all listings and calendar data.
+    columns:
+      - name: neighborhood
+        tests: [not_null]
+      - name: avg_price
+        description: "Average price across all listings in the neighborhood"
+
+  - name: listings_by_room_type
+    description: >
+      Count of listings by room type and neighborhood.
+    columns:
+      - name: room_type
+        tests: [not_null]
+      - name: neighborhood
+        tests: [not_null]
+      - name: listing_count
+        description: "Number of listings matching the room type and neighborhood"
+
+  - name: monthly_review_volume
+    description: >
+      Review volume per month across all listings.
+    columns:
+      - name: review_month
+        tests: [not_null]
+      - name: review_count
+        description: "Total reviews received in the given month"
+
+  - name: listing_metrics
+    description: >
+      Combines key performance metrics per listing including average price,
+      occupancy rate, and review score rating.
+    columns:
+      - name: listing_id
+        tests: [not_null]
+      - name: avg_price
+        description: "Average price for the listing over the calendar period"
+      - name: occupancy_rate
+        description: "Proportion of days the listing was unavailable"
+      - name: avg_rating
+        description: "Average review score rating"
