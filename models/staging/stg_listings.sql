@@ -4,7 +4,7 @@ with source as (
 
 ),
 
-renamed as (
+cleaned as (
 
     select
         id::int as listing_id,
@@ -39,7 +39,8 @@ renamed as (
         try_cast(host_listings_count as int) as host_listings_count
 
     from source
+    where room_type in ('Entire home/apt', 'Private room', 'Shared room', 'Hotel room')
 
 )
 
-select * from renamed
+select * from cleaned
