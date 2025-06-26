@@ -64,3 +64,30 @@ models:
         description: "Proportion of days the listing was unavailable"
       - name: avg_rating
         description: "Average review score rating"
+
+  - name: monthly_occupancy
+    description: >
+      Aggregated monthly occupancy metrics for Airbnb listings in San Diego.
+      Calculates occupancy rate based on number of nights booked divided by total calendar days per month for each listing.
+    columns:
+      - name: occupancy_month
+        description: "Month for which occupancy is calculated (first day of the month)."
+        tests:
+          - not_null
+
+      - name: listing_id
+        description: "Unique identifier for the Airbnb listing."
+        tests:
+          - not_null
+
+      - name: nights_booked
+        description: "Total number of nights the listing was booked during the month."
+
+      - name: total_calendar_days
+        description: "Total number of calendar days in the month for this listing (usually 28–31 days depending on month)."
+
+      - name: occupancy_rate
+        description: >
+          Calculated occupancy rate for the month.
+          Formula: nights_booked divided by total_calendar_days.
+          Expressed as a decimal (e.g., 0.75 = 75% occupancy).
