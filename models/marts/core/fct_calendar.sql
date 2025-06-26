@@ -16,4 +16,5 @@ select
     minimum_nights,
     maximum_nights,
     actual_price
+    
 from cleaned
