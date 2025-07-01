@@ -8,11 +8,10 @@ This project uses dbt, Snowflake, and Tableau to transform and analyze real-worl
 
 The goal of this project is to build an end-to-end analytics pipeline using the modern data stack:
 
-- ✅ Load raw Airbnb datasets into **Snowflake**
-- ✅ Clean and transform the data with **dbt**
-- ✅ Model key business metrics for **availability**, **pricing**, and **reviews**
-- ✅ Visualize insights in **Tableau**
-
+- ✅ Load raw Airbnb datasets into Snowflake
+- ✅ Clean, test, and transform the data with dbt
+- ✅ Model key business metrics for availability, pricing, reviews, and occupancy
+- ✅ Visualize insights in Tableau Public through interactive dashboards
 ---
 
 ## 🧰 Tech Stack
@@ -20,7 +19,7 @@ The goal of this project is to build an end-to-end analytics pipeline using the 
 | Tool      | Purpose                          |
 |-----------|----------------------------------|
 | **Snowflake** | Cloud data warehouse for storage |
-| **dbt Cloud** | Data modeling and transformation |
+| **dbt Cloud** | Data modeling, transformation, testing, and documentation |
 | **SQL**       | Core transformation language     |
 | **Tableau**   | Dashboards and data visualization |
 
@@ -43,30 +42,35 @@ airbnb-analytics-dbt/
 ## 🔍 Key Metrics Modeled
 
 - 💵 **Average nightly price by neighborhood**
-- 🛏️ **Availability and occupancy rates over time**
-- ⭐ **Review volume and sentiment analysis**
-- 🧑‍💼 **Top-performing hosts by activity and listing count**
+- 🏘️ **Top revenue-generating neighborhoods**
+- 🛏️ **Occupancy rates over time**
+- ⭐ **Monthly review volume as a proxy for demand**
+- 🏠 **Revenue contribution by room type**
 
 ---
 
-## 📊 Dashboard (Coming Soon)
-A Tableau dashboard will be created to visualize pricing, availability, and review trends across San Diego.
+## 📊 Tableau Dashboard (Coming Soon)
+Two Tableau dashboards were created to visualize revenue, pricing, occupancy, and demand trends:
 
-*Link to Tableau Public (when ready)*
+1. **Revenue & Pricing Trends**
+2. **Demand & Occupancy Trends**
+
+👉 [View the Published Tableau Dashboards] (https://public.tableau.com/views/AirbnbSanDiegoRevenueDemandandOccupancyTrends/RevenueandPricingTrends?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
 ## 📦 Data Source
 
-- Data from [Inside Airbnb – San Diego](http://insideairbnb.com/get-the-data.html)
-- Includes:
+- Public data from [Inside Airbnb – San Diego](http://insideairbnb.com/get-the-data.html)
+- Datasets used:
   - `listings.csv.gz` – Metadata for each listing
   - `calendar.csv.gz` – Daily availability and pricing
   - `reviews.csv.gz` – Guest reviews and review dates
 
   
-## 🧠 Future Improvements
+## ✅ Future Improvements
 
 - Add dbt macros for reusable logic
-- Expand dashboard with host-level analytics
-- Schedule dbt models to run daily or weekly
+- Schedule dbt models for automated runs
+- Automate data ingestion from Inside Airbnb (e.g., with Airflow or dbt jobs)
+- Expand Tableau dashboards with booking lead time and cancellation analysis
