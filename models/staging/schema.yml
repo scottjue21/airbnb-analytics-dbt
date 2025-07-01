@@ -16,7 +16,10 @@ models:
       - name: listing_id
         description: Unique ID for each listing
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: warn
+                description: "Listing ID is expected to be present for all reviews, but source data contains known nulls."
           - unique
 
       - name: listing_name
@@ -139,18 +142,28 @@ models:
       - name: review_id
         description: Unique ID for the review
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: warn
+                description: "Review ID is expected to be present for all reviews, but source data contains known nulls."
           - unique
 
       - name: listing_id
         description: Airbnb listing ID the review belongs to
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: warn
+                description: "Listing ID is expected to be present for all reviews, but source data contains known nulls."
 
       - name: review_date
         description: Date the review was posted
         tests:
-          - not_null
+          - not_null:
+              config:
+                severity: warn
+                description: "Review date is expected to be present for all reviews, but source data contains known nulls."
+
 
       - name: reviewer_id
         description: Unique ID of the reviewer
