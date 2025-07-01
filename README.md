@@ -1,17 +1,18 @@
 # 🏡 Airbnb Analytics Engineering Project (San Diego)
 
-This project uses dbt, Snowflake, and Tableau to transform and analyze real-world Airbnb data for San Diego. The data is sourced from [Inside Airbnb](http://insideairbnb.com/get-the-data.html) and ingested into Snowflake for modeling and dashboarding.
+This project uses **dbt**, **Snowflake**, and **Tableau** to transform and analyze real-world Airbnb data for San Diego. The data is sourced from [Inside Airbnb](http://insideairbnb.com/get-the-data.html) and ingested into **Snowflake** for modeling and dashboarding.
 
 ---
 
 ## 🚀 Project Overview
 
-The goal of this project is to build an end-to-end analytics pipeline using the modern data stack:
+The goal of this project was to build an **end-to-end analytics engineering pipeline** using the modern data stack:
 
-- ✅ Load raw Airbnb datasets into Snowflake
-- ✅ Clean, test, and transform the data with dbt
-- ✅ Model key business metrics for availability, pricing, reviews, and occupancy
-- ✅ Visualize insights in Tableau Public through interactive dashboards
+- ✅ Load raw Airbnb datasets into **Snowflake**
+- ✅ Clean, test, and transform the data with **dbt**
+- ✅ Model key business metrics for **availability**, **pricing**, **reviews**, and **occupancy**
+- ✅ Visualize insights in **Tableau Public** through interactive dashboards
+  
 ---
 
 ## 🧰 Tech Stack
@@ -39,28 +40,6 @@ airbnb-analytics-dbt/
 
 ---
 
-## 📈 Project DAG (Data Lineage Flow)
-
-Below is the full dbt project DAG (Directed Acyclic Graph), which shows how raw Inside Airbnb source data flows through each transformation layer:
-
-- ✅ Source Tables (green nodes) represent raw data loaded into Snowflake.
-- ✅ Staging Models clean and standardize raw data.
-- ✅ Dimension and Fact Models capture key business entities and metrics.
-- ✅ Aggregate Models summarize data for downstream Tableau dashboards.
-
-
-![Project DAG](images/project_dag.png)
-
----
-
-## ❄️ Snowflake Production Schema
-Below is a preview of the production schema (`AIRBNB_PROJECT_MARTS`) in Snowflake where all dbt models were deployed. This includes dimension tables, fact tables, and aggregate models that power the Tableau dashboards.
-
-![Snowflake Schema Preview](images/snowflake_schema.png) <br>
-*Deployed and orchestrated using dbt Cloud Jobs.*
-
----
-
 ## 🔍 Key Metrics Modeled
 
 - 💵 **Average nightly price by neighborhood**
@@ -71,8 +50,37 @@ Below is a preview of the production schema (`AIRBNB_PROJECT_MARTS`) in Snowflak
 
 ---
 
-## 📊 Tableau Dashboard (Coming Soon)
-Two Tableau dashboards were created to visualize revenue, pricing, occupancy, and demand trends:
+## 📈 Project DAG (Data Lineage Flow)
+
+Below is the full **dbt project DAG (Directed Acyclic Graph)**, showing how raw Inside Airbnb source data flows through each transformation layer:
+
+- ✅ **Source Tables** (green nodes) represent raw data loaded into Snowflake.
+- ✅ **Staging Models** clean and standardize raw data.
+- ✅ **Dimension and Fact Models** capture key business entities and metrics.
+- ✅ **Aggregate Models** summarize data for downstream Tableau dashboards.
+
+
+![Project DAG](images/project_dag.png)
+
+---
+
+## ❄️ Snowflake Production Schema
+Below is a preview of the production schema (`AIRBNB_PROJECT_MARTS`) in **Snowflake**, where all dbt models were deployed. This includes **dimension tables**, **fact tables**, and **aggregate models** that power the Tableau dashboards.
+
+![Snowflake Schema Preview](images/snowflake_schema.png) <br>
+*Deployed and orchestrated using dbt Cloud Jobs.*
+
+---
+## 📄 Example Snowflake Query: Monthly Revenue by Neighborhood and Room Type
+
+This query joins the `LISTING_MONTHLY_REVENUE` fact table with the `DIM_LISTINGS` dimension table to calculate total revenue by neighborhood and room type:
+
+![Snowflake Query Preview](images/snowflake_query.png)
+
+---
+
+## 📊 Tableau Dashboard
+Two **Tableau Public dashboards** were created to visualize revenue, pricing, occupancy, and demand trends:
 
 1. **Revenue & Pricing Trends**
 2. **Demand & Occupancy Trends**
