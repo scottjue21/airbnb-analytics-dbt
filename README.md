@@ -55,7 +55,7 @@ Two Tableau dashboards were created to visualize revenue, pricing, occupancy, an
 1. **Revenue & Pricing Trends**
 2. **Demand & Occupancy Trends**
 
-👉 [View the Published Tableau Dashboards] (https://public.tableau.com/views/AirbnbSanDiegoRevenueDemandandOccupancyTrends/RevenueandPricingTrends?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+👉 [View the Published Tableau Dashboards](https://public.tableau.com/views/AirbnbSanDiegoRevenueDemandandOccupancyTrends/RevenueandPricingTrends?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
