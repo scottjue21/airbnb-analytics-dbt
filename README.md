@@ -56,7 +56,7 @@ Below is the full dbt project DAG (Directed Acyclic Graph), which shows how raw 
 ## ❄️ Snowflake Production Schema
 Below is a preview of the production schema (`AIRBNB_PROJECT_MARTS`) in Snowflake where all dbt models were deployed. This includes dimension tables, fact tables, and aggregate models that power the Tableau dashboards.
 
-![Snowflake Schema Preview](images/snowflake_schema.png)
+![Snowflake Schema Preview](images/snowflake_schema.png) <br>
 *Deployed and orchestrated using dbt Cloud Jobs.*
 
 ---
