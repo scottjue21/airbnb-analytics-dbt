@@ -36,6 +36,16 @@ airbnb-analytics-dbt/
 ├── dbt_project.yml
 └── README.md
 ```
+## 📈 Project DAG (Data Lineage Flow)
+
+Below is the full dbt project DAG (Directed Acyclic Graph), which shows how raw Inside Airbnb source data flows through each transformation layer:
+
+✅ Source Tables (green nodes) represent raw data loaded into Snowflake.
+✅ Staging Models clean and standardize raw data.
+✅ Dimension and Fact Models capture key business entities and metrics.
+✅ Aggregate Models summarize data for downstream Tableau dashboards.
+
+![Project DAG](images/project_dag.png)
 
 ---
 
