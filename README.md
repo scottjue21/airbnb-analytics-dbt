@@ -32,7 +32,7 @@ airbnb-analytics-dbt/
 ├── models/
 │   ├── staging/        # Cleans raw data
 │   └── marts/          # Business-level metrics
-├── snapshots/          # (optional)
+├── snapshots/          
 ├── dbt_project.yml
 └── README.md
 ```
